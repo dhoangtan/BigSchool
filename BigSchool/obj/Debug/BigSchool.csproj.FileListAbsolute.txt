@@ -111,3 +111,5 @@ C:\Users\ASUS\source\repos\BigSchool\BigSchool\obj\Debug\BigSchool.csproj.Genera
 C:\Users\ASUS\source\repos\BigSchool\BigSchool\obj\Debug\BigSchool.Migrations.CreateTableCourse.resources
 C:\Users\ASUS\source\repos\BigSchool\BigSchool\obj\Debug\BigSchool.Migrations.CreateTableCourseAndCategory.resources
 C:\Users\ASUS\source\repos\BigSchool\BigSchool\obj\Debug\BigSchool.Migrations.PopulateCategoryTable.resources
+C:\Users\ASUS\source\repos\BigSchool\BigSchool\obj\Debug\BigSchool.Migrations.AddNameColumnToApplicationUser.resources
+C:\Users\ASUS\source\repos\BigSchool\BigSchool\obj\Debug\BigSchool.Migrations.AddAttendance.resources
