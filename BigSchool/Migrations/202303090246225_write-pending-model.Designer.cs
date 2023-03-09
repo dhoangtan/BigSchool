@@ -7,13 +7,13 @@ namespace BigSchool.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class AddAttendance : IMigrationMetadata
+    public sealed partial class writependingmodel : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AddAttendance));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(writependingmodel));
         
         string IMigrationMetadata.Id
         {
-            get { return "202303090210115_AddAttendance"; }
+            get { return "202303090246225_write-pending-model"; }
         }
         
         string IMigrationMetadata.Source

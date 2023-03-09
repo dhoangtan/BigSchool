@@ -112,4 +112,10 @@ C:\Users\ASUS\source\repos\BigSchool\BigSchool\obj\Debug\BigSchool.Migrations.Cr
 C:\Users\ASUS\source\repos\BigSchool\BigSchool\obj\Debug\BigSchool.Migrations.CreateTableCourseAndCategory.resources
 C:\Users\ASUS\source\repos\BigSchool\BigSchool\obj\Debug\BigSchool.Migrations.PopulateCategoryTable.resources
 C:\Users\ASUS\source\repos\BigSchool\BigSchool\obj\Debug\BigSchool.Migrations.AddNameColumnToApplicationUser.resources
-C:\Users\ASUS\source\repos\BigSchool\BigSchool\obj\Debug\BigSchool.Migrations.AddAttendance.resources
+C:\Users\ASUS\source\repos\BigSchool\BigSchool\bin\System.Net.Http.Formatting.dll
+C:\Users\ASUS\source\repos\BigSchool\BigSchool\bin\System.Web.Http.dll
+C:\Users\ASUS\source\repos\BigSchool\BigSchool\bin\System.Web.Http.WebHost.dll
+C:\Users\ASUS\source\repos\BigSchool\BigSchool\bin\System.Net.Http.Formatting.xml
+C:\Users\ASUS\source\repos\BigSchool\BigSchool\bin\System.Web.Http.xml
+C:\Users\ASUS\source\repos\BigSchool\BigSchool\bin\System.Web.Http.WebHost.xml
+C:\Users\ASUS\source\repos\BigSchool\BigSchool\obj\Debug\BigSchool.Migrations.writependingmodel.resources
