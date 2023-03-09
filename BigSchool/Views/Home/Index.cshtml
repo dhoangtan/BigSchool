@@ -4,7 +4,7 @@
 }
 <p class="display-6">Incoming Courses</p>
 <div class="row">
-    <ul class="list-group w-50">
+    <ul class="list-group w-75">
         <li class="container text-start list-group-item list-group-item-light">
             <div class="row">
                 <h5 class="col ms-3 me-3">Time</h5>
@@ -14,18 +14,34 @@
                 <h5 class="col ms-3 me-3">
                     Lecturer
                 </h5>
+                <h5 class="col ms-3 me-3">
+                    Status
+                </h5>
             </div>
         </li>
         @foreach (var course in Model)
         {
             <li class="container text-start list-group-item">
                 <div class="row">
-                    <div class="badge bg-info col ms-3 me-3">@course.DateTime.ToString()</div>
-                    <div class="badge bg-secondary col ms-3 me-3">
-                        @course.Category.Name
+                    <div class="col ms-3 me-3">
+                        <span class="badge bg-secondary">
+                            @course.DateTime.ToString()
+                        </span>
                     </div>
                     <div class="col ms-3 me-3">
-                        @course.Lecturer.Name
+                        <span class="badge bg-secondary">
+                            @course.Category.Name
+                        </span>
+                    </div>
+                    <div class="col ms-3 me-3">
+                        <span>
+                            @course.Lecturer.Name
+                        </span>
+                    </div>
+                    <div class="col">
+                        <button data-course-id="@course.Id" class="btn btn-light btn-sm js-toggle-attendance">
+                            Join
+                        </button>
                     </div>
                 </div>
 
@@ -33,4 +49,20 @@
         }
     </ul>
 </div>
-
+@section scripts 
+{
+    <script>
+        $(document).ready(function () {
+            $(".js-toggle-attendance").click(function (e) {
+                var button = $(e.target);
+                $.post("api/attendances", { courseId: button.attr("data-course-id") })
+                    .done(function () {
+                        button.removeClass("btn-light").addClass("btn-success").text("Joined")
+                    })
+                    .fail(function () {
+                        alert("Something went wrong!")
+                    })
+            })
+        })
+    </script>
+}
