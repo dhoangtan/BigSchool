@@ -119,3 +119,4 @@ C:\Users\ASUS\source\repos\BigSchool\BigSchool\bin\System.Net.Http.Formatting.xm
 C:\Users\ASUS\source\repos\BigSchool\BigSchool\bin\System.Web.Http.xml
 C:\Users\ASUS\source\repos\BigSchool\BigSchool\bin\System.Web.Http.WebHost.xml
 C:\Users\ASUS\source\repos\BigSchool\BigSchool\obj\Debug\BigSchool.Migrations.writependingmodel.resources
+C:\Users\ASUS\source\repos\BigSchool\BigSchool\obj\Debug\BigSchool.Migrations.AddFollowingTable.resources

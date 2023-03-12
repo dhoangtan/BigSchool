@@ -39,8 +39,11 @@
                         </span>
                     </div>
                     <div class="col">
-                        <button data-course-id="@course.Id" class="btn btn-light btn-sm js-toggle-attendance">
+                        <button data-course-id="@course.Id" class="btn btn-dark btn-sm js-toggle-attendance">
                             Join
+                        </button>
+                        <button data-user-id="@course.LecturerId" class="btn btn-light btn-sm js-toggle-follow">
+                            Follow Lecturer
                         </button>
                     </div>
                 </div>
@@ -55,9 +58,20 @@
         $(document).ready(function () {
             $(".js-toggle-attendance").click(function (e) {
                 var button = $(e.target);
-                $.post("api/attendances", { courseId: button.attr("data-course-id") })
+                $.post("/api/Attendances", { courseId: button.attr("data-course-id") })
                     .done(function () {
-                        button.removeClass("btn-light").addClass("btn-success").text("Joined")
+                        button.removeClass("btn-dark").addClass("btn-success").text("Joined")
+                    })
+                    .fail(function () {
+                        alert("Something went wrong!")
+                    })
+            })
+
+            $(".js-toggle-follow").click(function (e) {
+                var button = $(e.target);
+                $.post("/api/Following", { followeeId: button.attr("data-user-id") })
+                    .done(function () {
+                        button.text("Following").removeClass("btn-light").addClass("btn-info")
                     })
                     .fail(function () {
                         alert("Something went wrong!")
