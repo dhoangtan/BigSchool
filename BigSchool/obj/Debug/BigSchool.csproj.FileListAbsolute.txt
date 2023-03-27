@@ -120,3 +120,5 @@ C:\Users\ASUS\source\repos\BigSchool\BigSchool\bin\System.Web.Http.xml
 C:\Users\ASUS\source\repos\BigSchool\BigSchool\bin\System.Web.Http.WebHost.xml
 C:\Users\ASUS\source\repos\BigSchool\BigSchool\obj\Debug\BigSchool.Migrations.writependingmodel.resources
 C:\Users\ASUS\source\repos\BigSchool\BigSchool\obj\Debug\BigSchool.Migrations.AddFollowingTable.resources
+C:\Users\ASUS\source\repos\BigSchool\BigSchool\obj\Debug\BigSchool.Migrations.AddIsCanceledColumnToCourse.resources
+C:\Users\ASUS\source\repos\BigSchool\BigSchool\obj\Debug\BigSchool.Migrations.RenameColumn.resources

@@ -1,20 +1,16 @@
 ﻿@model BigSchool.ViewModels.UpcomingCoursesViewModel
 @{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "Attending";
     Layout = "~/Views/Shared/_Layout.cshtml";
-
 }
-<p class="display-6">Incoming Courses</p>
+<p class="display-6">Attending</p>
 <div class="row">
-    <ul class="list-group w-100">
+    <ul class="list-group w-75">
         <li class="container text-start list-group-item list-group-item-light">
             <div class="row">
                 <h5 class="col ms-3 me-3">Time</h5>
                 <h5 class="col ms-3 me-3">
                     Category
-                </h5>
-                <h5 class="col ms-3 me-3">
-                    Place
                 </h5>
                 <h5 class="col ms-3 me-3">
                     Lecturer
@@ -34,13 +30,8 @@
                         </span>
                     </div>
                     <div class="col ms-3 me-3">
-                        <span class="badge bg-success">
-                            @course.Category.Name
-                        </span>
-                    </div>
-                    <div class="col ms-3 me-3">
                         <span class="badge bg-secondary">
-                            @course.Place
+                            @course.Category.Name
                         </span>
                     </div>
                     <div class="col ms-3 me-3">
@@ -49,12 +40,12 @@
                         </span>
                     </div>
                     <div class="col">
-                        @if(Model.ShowAction)
+                        @if (Model.ShowAction)
                         {
-                            <button data-course-id="@course.Id" class="btn btn-dark btn-sm js-attendance">
+                            <button data-course-id="@course.Id" class="btn btn-dark btn-sm js-toggle-attendance">
                                 Join
                             </button>
-                            <button data-user-id="@course.LecturerId" class="btn btn-light btn-sm js-follow">
+                            <button data-user-id="@course.LecturerId" class="btn btn-light btn-sm js-toggle-follow">
                                 Follow Lecturer
                             </button>
                         }
@@ -65,12 +56,12 @@
         }
     </ul>
 </div>
-@section scripts 
+@section scripts
 {
     <script>
         $(document).ready(function () {
-            $(".js-attendance").click(function (e) {
-                let button = $(e.target);
+            $(".js-toggle-attendance").click(function (e) {
+                var button = $(e.target);
                 $.post("/api/Attendances", { courseId: button.attr("data-course-id") })
                     .done(function () {
                         button.removeClass("btn-dark").addClass("btn-success").text("Joined")
@@ -80,8 +71,8 @@
                     })
             })
 
-            $(".js-follow").click(function (e) {
-                let button = $(e.target);
+            $(".js-toggle-follow").click(function (e) {
+                var button = $(e.target);
                 $.post("/api/Following", { followeeId: button.attr("data-user-id") })
                     .done(function () {
                         button.text("Following").removeClass("btn-light").addClass("btn-info")
@@ -93,3 +84,5 @@
         })
     </script>
 }
+
+

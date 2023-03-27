@@ -1,0 +1,64 @@
+﻿@model IEnumerable<BigSchool.Models.ApplicationUser>
+@{
+    ViewBag.Title = "Following";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+<p class="display-6">Lecturers I'm Following</p>
+<div class="row">
+    <ul class="list-group w-75">
+        <li class="container text-start list-group-item list-group-item-light">
+            <div class="row">
+                <h5 class="col ms-3 me-3">Lecturer</h5>
+                <h5 class="col ms-3 me-3">
+                    Email
+                </h5>
+            </div>
+        </li>
+        @foreach (var lecturer in Model)
+        {
+            <li class="container text-start list-group-item">
+                <div class="row">
+                    <div class="col ms-3 me-3">
+                        <span class="">
+                            @lecturer.Name
+                        </span>
+                    </div>
+                    <div class="col ms-3 me-3">
+                        <span class="">
+                            @lecturer.Email
+                        </span>
+                    </div>
+                </div>
+            </li>
+        }
+    </ul>
+</div>
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+            $(".js-toggle-attendance").click(function (e) {
+                var button = $(e.target);
+                $.post("/api/Attendances", { courseId: button.attr("data-course-id") })
+                    .done(function () {
+                        button.removeClass("btn-dark").addClass("btn-success").text("Joined")
+                    })
+                    .fail(function () {
+                        alert("Something went wrong!")
+                    })
+            })
+
+            $(".js-toggle-follow").click(function (e) {
+                var button = $(e.target);
+                $.post("/api/Following", { followeeId: button.attr("data-user-id") })
+                    .done(function () {
+                        button.text("Following").removeClass("btn-light").addClass("btn-info")
+                    })
+                    .fail(function () {
+                        alert("Something went wrong!")
+                    })
+            })
+        })
+    </script>
+}

@@ -26,6 +26,13 @@ namespace BigSchool.Controllers
             {
                 return BadRequest("Following already exists");
             }
+            var following = new Following
+            {
+                FollowerId = userId,
+                FolloweeId = followingDto.FolloweeId
+            };
+            _dbContext.Followings.Add(following);
+            _dbContext.SaveChanges();
             return Ok();
         }
     }

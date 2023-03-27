@@ -179,6 +179,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\Api\CourseController.cs" />
     <Compile Include="Controllers\AttendancesController.cs" />
     <Compile Include="Controllers\CoursesController.cs" />
     <Compile Include="Controllers\FollowingController.cs" />
@@ -217,6 +218,14 @@
     <Compile Include="Migrations\202303121310364_AddFollowingTable.designer.cs">
       <DependentUpon>202303121310364_AddFollowingTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202303261336418_AddIsCanceledColumnToCourse.cs" />
+    <Compile Include="Migrations\202303261336418_AddIsCanceledColumnToCourse.designer.cs">
+      <DependentUpon>202303261336418_AddIsCanceledColumnToCourse.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202303261337391_RenameColumn.cs" />
+    <Compile Include="Migrations\202303261337391_RenameColumn.designer.cs">
+      <DependentUpon>202303261337391_RenameColumn.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -253,6 +262,12 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Scripts\bootbox.all.js" />
+    <Content Include="Scripts\bootbox.all.min.js" />
+    <Content Include="Scripts\bootbox.js" />
+    <Content Include="Scripts\bootbox.locales.js" />
+    <Content Include="Scripts\bootbox.locales.min.js" />
+    <Content Include="Scripts\bootbox.min.js" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
@@ -270,6 +285,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Views\Courses\Mine.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -305,10 +321,11 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Courses\Create.cshtml" />
+    <Content Include="Views\Courses\Attending.cshtml" />
+    <Content Include="Views\Courses\Following.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Following\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />
@@ -358,6 +375,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202303121310364_AddFollowingTable.resx">
       <DependentUpon>202303121310364_AddFollowingTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303261336418_AddIsCanceledColumnToCourse.resx">
+      <DependentUpon>202303261336418_AddIsCanceledColumnToCourse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303261337391_RenameColumn.resx">
+      <DependentUpon>202303261337391_RenameColumn.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

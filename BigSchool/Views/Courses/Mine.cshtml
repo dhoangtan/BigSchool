@@ -1,12 +1,14 @@
-﻿@model BigSchool.ViewModels.UpcomingCoursesViewModel
-@{
-    ViewBag.Title = "Home Page";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+﻿@using System.Globalization
+@model System.Collections.Generic.List<BigSchool.Models.Course>
 
+@{
+    ViewBag.Title = "Mine";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<p class="display-6">Incoming Courses</p>
+
+<h2 class="display-6">My Courses</h2>
 <div class="row">
-    <ul class="list-group w-100">
+    <ul class="list-group w-100 ">
         <li class="container text-start list-group-item list-group-item-light">
             <div class="row">
                 <h5 class="col ms-3 me-3">Time</h5>
@@ -20,17 +22,18 @@
                     Lecturer
                 </h5>
                 <h5 class="col ms-3 me-3">
-                    Status
+                    Action
                 </h5>
+
             </div>
         </li>
-        @foreach (var course in Model.UpcomingCourses)
+        @foreach (var course in Model)
         {
             <li class="container text-start list-group-item">
                 <div class="row">
                     <div class="col ms-3 me-3">
                         <span class="badge bg-secondary">
-                            @course.DateTime.ToString()
+                            @course.DateTime.ToString(CultureInfo.CurrentCulture)
                         </span>
                     </div>
                     <div class="col ms-3 me-3">
@@ -48,16 +51,13 @@
                             @course.Lecturer.Name
                         </span>
                     </div>
-                    <div class="col">
-                        @if(Model.ShowAction)
-                        {
-                            <button data-course-id="@course.Id" class="btn btn-dark btn-sm js-attendance">
-                                Join
-                            </button>
-                            <button data-user-id="@course.LecturerId" class="btn btn-light btn-sm js-follow">
-                                Follow Lecturer
-                            </button>
-                        }
+                    <div class="col ms-3 me-3">
+                        <a href="@Url.Action("Edit", "Courses", new { id = course.Id })" class="btn btn-info btn-sm">
+                            Edit
+                        </a> 
+                        <a href="#" class="js-cancel-course" data-course-id="@course.Id">
+                            Cancel
+                        </a> 
                     </div>
                 </div>
 
@@ -65,30 +65,28 @@
         }
     </ul>
 </div>
-@section scripts 
+@section scripts
 {
     <script>
         $(document).ready(function () {
-            $(".js-attendance").click(function (e) {
-                let button = $(e.target);
-                $.post("/api/Attendances", { courseId: button.attr("data-course-id") })
+            $(".js-cancel-course").click(function (e) {
+                e.preventDefault()
+                var link = $(e.target)       
+                bootbox.confirm("Ban chac chan muon huy khoa hoc?",
+                function () {
+                    $.ajax({
+                        url: "/api/course/" + link.attr("data-course-id"),
+                        method: "DELETE"
+                    }) 
                     .done(function () {
-                        button.removeClass("btn-dark").addClass("btn-success").text("Joined")
+                        link.parents("li").fadeOut(function () {
+                            $(this).remove()
+                        })
                     })
                     .fail(function () {
-                        alert("Something went wrong!")
+                        alert("Co gi do sai sai")
                     })
-            })
-
-            $(".js-follow").click(function (e) {
-                let button = $(e.target);
-                $.post("/api/Following", { followeeId: button.attr("data-user-id") })
-                    .done(function () {
-                        button.text("Following").removeClass("btn-light").addClass("btn-info")
-                    })
-                    .fail(function () {
-                        alert("Something went wrong!")
-                    })
+                })
             })
         })
     </script>
